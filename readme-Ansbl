@@ -1,0 +1,28 @@
+This is a collection of notes that helped me get Ansible going on osx el capitan
+
+- Followed steps outlined in this link:
+
+http://docs.ansible.com/ansible/intro_installation.html#latest-releases-via-pip
+
+- After ansible download had to add the following to my environment:
+
+ANSIBLE_HOSTS=/Users/zaid/Projects/Ansible/hosts
+
+- Created file hosts in
+
+/Users/zaid/Projects/Ansible
+
+- The files looks like this:
+
+[zaid-mbp:~/Projects/Ansible] zaid% cat hosts
+mymac1 ansible_ssh_host=127.0.0.1 ansible_ssh_port=22 ansible_ssh_user=zaid ansible_ssh_pass=D1rW2ktJ08?!
+##srx1 ansible_ssh_host=10.0.4.151 ansible_ssh_port=22 ansible_ssh_user=root  ansible_ssh_pass=R00tt00R
+
+[local]
+mymac1 
+
+[host]
+##srx1 
+
+
+
