@@ -1,0 +1,9 @@
+---
+- hosts: local
+  remote_user: zaid
+  tasks:
+     - name: 'ping'
+       ping:
+     - name: 'cat motd'
+       shell: /bin/cat /etc/motd >> /Users/zaid/Projects/Ansible/outbook0.txt
+       register: mymotd
