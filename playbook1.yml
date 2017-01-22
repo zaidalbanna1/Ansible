@@ -1,0 +1,18 @@
+---
+- hosts: local
+  remote_user: zaid
+  tasks:
+     - name: 'arp get'
+       shell: /usr/sbin/arp -a | grep 192.168.43 | wc -l 
+       register: myarps1
+
+     - name: 'arp check'
+       debug: msg="Illegal intrusion detected {{myarps1.stdout}}"
+       when: myarps1.stdout|int > 1
+
+     - name: 'check arp many times'
+       shell: /usr/sbin/arp -a | wc -l 
+       register: myarps2
+       until: myarps2.stdout|int > 5
+       retries: 2
+       delay: 5
